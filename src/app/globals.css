@@ -2,20 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 222.2 84% 4.9%; /* hsl(222.2, 84%, 4.9%) - e.g., slate-950 */
+    --foreground: 210 40% 98%; /* hsl(210, 40%, 98%) - e.g., slate-50 */
+
+    --card: 224 71.4% 4.1%; /* hsl(224, 71.4%, 4.1%) - e.g., slate-950 */
+    --card-foreground: 210 40% 98%; /* hsl(210, 40%, 98%) */
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%; /* hsl(217.2, 91.2%, 59.8%) - e.g., sky-500 */
+    --primary-foreground: 222.2 47.4% 11.2%; /* hsl(222.2, 47.4%, 11.2%) - e.g., slate-900 for text on primary */
+
+    --secondary: 222.2 47.4% 11.2%; /* hsl(222.2, 47.4%, 11.2%) - e.g., slate-800 */
+    --secondary-foreground: 210 40% 98%; /* hsl(210, 40%, 98%) */
+
+    --muted: 222.2 47.4% 11.2%;
+    --muted-foreground: 215 20.2% 65.1%; /* hsl(215, 20.2%, 65.1%) - e.g., slate-400 */
+
+    --accent: 217.2 91.2% 59.8%; /* hsl(217.2, 91.2%, 59.8%) */
+    --accent-foreground: 210 40% 98%; /* hsl(210, 40%, 98%) */
+
+    --destructive: 0 72.2% 50.6%; /* hsl(0, 72.2%, 50.6%) - e.g., red-600 */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222.2 47.4% 11.2%; /* hsl(222.2, 47.4%, 11.2%) */
+    --input: 222.2 47.4% 11.2%;
+    --ring: 217.2 91.2% 59.8%; /* hsl(217.2, 91.2%, 59.8%) */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* If your app is dark by default, these are the same as :root. 
+       You can define different HSL values here if you were to implement a theme toggle 
+       and wanted the .dark class to represent a different dark theme than the default :root one. 
+       For a single, default dark theme, :root is sufficient. */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+} 
